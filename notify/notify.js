@@ -5,7 +5,7 @@ const API_URL = 'https://push.techulus.com/api/v1/notify'
 const eventPayload = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'))
 
 const message = {
-	body: `New ${eventPayload.repository.full_name} happened in ${eventPayload.repository.full_name} by ${eventPayload.repository.full_name}` || 'No message specified',
+	body: `New push/issue/pr happened in ${eventPayload.pusher.name} by ${eventPayload.repository.full_name}` || 'No message specified',
 	title: `GitHub Notification from ${eventPayload.repository.full_name}`
 }
 
